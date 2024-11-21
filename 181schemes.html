@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scheme Search</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      background-color: #f8f9fa;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar h3 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .filter-group {
+      margin-bottom: 15px;
+    }
+
+    .filter-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .filter-group select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .reset-filters {
+      color: #4CAF50;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    /* Search Bar */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+    }
+
+    .search-bar button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 20px;
+      border-bottom: 2px solid #ddd;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #4CAF50;
+    }
+
+    .tab.active {
+      border-bottom: 2px solid #4CAF50;
+    }
+
+    /* Results */
+    .results-info {
+      margin-bottom: 15px;
+      color: #666;
+    }
+
+    .result-card {
+      background-color: #fff;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .result-card h4 {
+      color: #333;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .result-card .location {
+      font-size: 14px;
+      color: #777;
+    }
+
+    .result-card p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    /* Tags */
+    .tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background-color: #e8f5e9;
+      color: #4CAF50;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h3>Filter By</h3>
+    <span class="reset-filters">Reset Filters</span>
+    
+    <div class="filter-group">
+      <label for="state">State</label>
+      <select id="state">
+        <option>Select</option>
+        <option>Telangana</option>
+        <option>Andhra Pradesh</option>
+        <option>Karnataka</option>
+        <option>Tamil Nadu</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="gender">Gender</label>
+      <select id="gender">
+        <option>Select</option>
+        <option>male</option>
+        <option>female</option>
+        <option>others</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="age">Age</label>
+      <select id="age">
+        <option>Select</option>
+        <option>1-10</option>
+        <option>11-16</option>
+        <option>17-20</option>
+        <option>21-30</option>
+        <option>31-50</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="caste">Caste</label>
+      <select id="caste">
+        <option>Select</option>
+        <option>OC</option>
+        <option>BC</option>
+        <option>SC</option>
+        <option>ST</option>
+      </select>
+    </div>
+    
+    <!-- Add other filter groups as needed -->
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" placeholder="Search">
+      <button>🔍</button>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <span class="tab active">All Schemes</span>
+      <span class="tab ">State Schemes</span>
+      <span class="tab ">Central Schemes</span>
+    </div>
+
+    <!-- Results Info -->
+    <div class="results-info">
+      We found 18 schemes based on your preferences
+    </div>
+
+    <!-- Result Cards -->
+ <!-- Telangana -->
+<div class="result-card"   onclick="redirectTo('telanagana1.html')" >
+  <h4>Telangana Kidney Health Assistance Scheme</h4>
+  <span class="location">Telangana</span>
+  <p>A state-funded initiative providing financial support for dialysis treatment and kidney transplants for low-income families in Telangana.</p>
+  <div class="tags">
+    <span class="tag">Kidney Health</span>
+    <span class="tag">Dialysis</span>
+    <span class="tag">Telangana</span>
+  </div>
+</div>
+
+<div class="result-card"  onclick="redirectTo('tel2.html')" > 
+  <h4>Telangana Kidney Transplant Support Program</h4>
+  <span class="location">Telangana</span>
+  <p>Offers financial assistance and medical coverage for kidney transplant procedures, including pre- and post-operative care.</p>
+  <div class="tags">
+    <span class="tag">Kidney Transplant</span>
+    <span class="tag">Financial Assistance</span>
+    <span class="tag">Telangana</span>
+  </div>
+</div>
+
+<!-- Andhra Pradesh -->
+<div class="result-card"   onclick="redirectTo('andhra.html')" >
+  <h4>Andhra Pradesh Kidney Care Scheme</h4>
+  <span class="location">Andhra Pradesh</span>
+  <p>A welfare scheme providing free dialysis sessions and medical assistance for patients with chronic kidney disease (CKD).</p>
+  <div class="tags">
+    <span class="tag">Kidney Care</span>
+    <span class="tag">Dialysis</span>
+    <span class="tag">Andhra Pradesh</span>
+  </div>
+</div>
+
+<div class="result-card"  onclick="redirectTo('andhra2.html')" >
+  <h4>Andhra Pradesh Kidney Transplant Assistance Scheme</h4>
+  <span class="location">Andhra Pradesh</span>
+  <p>Provides financial aid and insurance coverage for kidney transplants and related medical expenses for low-income patients.</p>
+  <div class="tags">
+    <span class="tag">Kidney Transplant</span>
+    <span class="tag">Financial Assistance</span>
+    <span class="tag">Andhra Pradesh</span>
+  </div>
+</div>
+
+<!-- Tamil Nadu -->
+<div class="result-card"  onclick="redirectTo('tamil1.html')" >
+  <h4>Tamil Nadu Dialysis Support Scheme</h4>
+  <span class="location">Tamil Nadu</span>
+  <p>A state-funded program offering free dialysis sessions and medical assistance for kidney disease patients across Tamil Nadu.</p>
+  <div class="tags">
+    <span class="tag">Dialysis</span>
+    <span class="tag">Kidney Health</span>
+    <span class="tag">Tamil Nadu</span>
+  </div>
+</div>
+
+<div class="result-card"  onclick="redirectTo('tamil2.html')" >
+  <h4>Tamil Nadu Kidney Transplant Insurance Scheme</h4>
+  <span class="location">Tamil Nadu</span>
+  <p>Provides insurance coverage for kidney transplant procedures, including pre- and post-operative care for patients in Tamil Nadu.</p>
+  <div class="tags">
+    <span class="tag">Kidney Transplant</span>
+    <span class="tag">Insurance</span>
+    <span class="tag">Tamil Nadu</span>
+  </div>
+</div>
+
+<!-- Karnataka -->
+<div class="result-card"  onclick="redirectTo('kar1.html')" >
+  <h4>Karnataka Kidney Care Scheme</h4>
+  <span class="location">Karnataka</span>
+  <p>This scheme offers free dialysis treatment and financial assistance for kidney transplants to patients in Karnataka.</p>
+  <div class="tags">
+    <span class="tag">Kidney Care</span>
+    <span class="tag">Dialysis</span>
+    <span class="tag">Karnataka</span>
+  </div>
+</div>
+
+<div class="result-card"  onclick="redirectTo('kar2.html')" >
+  <h4>Karnataka Kidney Transplant Support Program</h4>
+  <span class="location">Karnataka</span>
+  <p>Provides financial assistance, medical coverage, and insurance for kidney transplant procedures and post-operative care.</p>
+  <div class="tags">
+    <span class="tag">Kidney Transplant</span>
+    <span class="tag">Financial Assistance</span>
+    <span class="tag">Karnataka</span>
+  </div>
+</div>
+
+<!-- Maharashtra -->
+<div class="result-card"  onclick="redirectTo('maha1.html')" >
+  <h4>Maharashtra Kidney Health Assistance Scheme</h4>
+  <span class="location">Maharashtra</span>
+  <p>An insurance scheme covering dialysis, kidney transplants, and related medical expenses for patients in Maharashtra.</p>
+  <div class="tags">
+    <span class="tag">Kidney Health</span>
+    <span class="tag">Dialysis</span>
+    <span class="tag">Maharashtra</span>
+  </div>
+</div>
+
+<div class="result-card"  onclick="redirectTo('maha2.html')" >
+  <h4>Maharashtra Kidney Transplant Support Scheme</h4>
+  <span class="location">Maharashtra</span>
+  <p>Offers financial assistance and insurance coverage for kidney transplants and associated medical care, ensuring comprehensive support for patients in Maharashtra.</p>
+  <div class="tags">
+    <span class="tag">Kidney Transplant</span>
+    <span class="tag">Insurance</span>
+    <span class="tag">Maharashtra</span>
+  </div>
+</div>
+
+<!-- National -->
+<div class="result-card"  onclick="redirectTo('nati.html')" >
+  <h4>National Kidney Health Program</h4>
+  <span class="location">National</span>
+  <p>A nationwide initiative focused on early detection and management of kidney disease through dialysis support, health insurance, and patient education.</p>
+  <div class="tags">
+    <span class="tag">Kidney Health</span>
+    <span class="tag">Dialysis</span>
+    <span class="tag">National</span>
+  </div>
+</div>
+
+<div class="result-card"  onclick="redirectTo('nati2.html')" >
+  <h4>National Kidney Transplant Scheme</h4>
+  <span class="location">National</span>
+  <p>Provides comprehensive insurance coverage for kidney transplants, including pre- and post-operative care, to ensure financial support for patients nationwide.</p>
+  <div class="tags">
+    <span class="tag">Kidney Transplant</span>
+    <span class="tag">Insurance</span>
+    <span class="tag">National</span>
+  </div>
+</div>
+
+    <!-- Add more result cards as needed -->
+  </div>
+  <script>
+    function redirectTo(page) {
+      window.location.href = page;
+    }
+  </script>
+</body>
+</html>

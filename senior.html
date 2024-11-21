@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search for Government Programs</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      background-color: #f8f9fa;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar h3 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .filter-group {
+      margin-bottom: 15px;
+    }
+
+    .filter-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .filter-group select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .reset-filters {
+      color: #4CAF50;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    /* Search Bar */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+    }
+
+    .search-bar button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 20px;
+      border-bottom: 2px solid #ddd;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #4CAF50;
+    }
+
+    .tab.active {
+      border-bottom: 2px solid #4CAF50;
+    }
+
+    /* Results */
+    .results-info {
+      margin-bottom: 15px;
+      color: #666;
+    }
+
+    .result-card {
+      background-color: #fff;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .result-card h4 {
+      color: #333;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .result-card .location {
+      font-size: 14px;
+      color: #777;
+    }
+
+    .result-card p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    /* Tags */
+    .tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background-color: #e8f5e9;
+      color: #4CAF50;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h3>Filter By</h3>
+    <span class="reset-filters">Reset Filters</span>
+    
+    <div class="filter-group">
+      <label for="state">State</label>
+      <select id="state">
+        <option>Select</option>
+        <option>Telangana</option>
+        <option>Andhra Pradesh</option>
+        <option>Karnataka</option>
+        <option>Tamil Nadu</option>
+        <option>Maharashtra</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="gender">Gender</label>
+      <select id="gender">
+        <option>Select</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Others</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="age">Age</label>
+      <select id="age">
+        <option>Select</option>
+        <option>1-10</option>
+        <option>11-16</option>
+        <option>17-20</option>
+        <option>21-30</option>
+        <option>31-50</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="caste">Caste</label>
+      <select id="caste">
+        <option>Select</option>
+        <option>OC</option>
+        <option>BC</option>
+        <option>SC</option>
+        <option>ST</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" placeholder="Search">
+      <button>🔍</button>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <span class="tab active">All Programs</span>
+      <span class="tab">State Programs</span>
+      <span class="tab">Central Programs</span>
+    </div>
+
+    <!-- Results Info -->
+    <div class="results-info">
+      We found 20 programs based on your preferences
+    </div>
+
+   <div class="result-card"   onclick="redirectTo('ayu1.html')"  >
+  <h4>Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PMJAY)</h4>
+  <span class="location">National</span>
+  <p>This health insurance scheme provides free hospitalization and medical treatment to eligible families, with a focus on low-income households and senior citizens.</p>
+  <div class="tags">
+    <span class="tag">Health Insurance</span>
+    <span class="tag">Hospitalization</span>
+    <span class="tag">Medical Support</span>
+  </div>
+</div>
+
+<div class="result-card"  onclick="redirectTo('snat1.html')" >
+  <h4>National Programme for Health Care of the Elderly (NPHCE)</h4>
+  <span class="location">National</span>
+  <p>This program aims to provide dedicated healthcare services, including geriatric care, to senior citizens in India through hospitals and primary health centers.</p>
+  <div class="tags">
+    <span class="tag">Geriatric Care</span>
+    <span class="tag">Health Care</span>
+    <span class="tag">Senior Citizens</span>
+  </div>
+</div>
+
+<div class="result-card"  onclick="redirectTo('free1.html')" >
+  <h4>Indira Gandhi National Old Age Pension Scheme (IGNOAPS)</h4>
+  <span class="location">National</span>
+  <p>In addition to providing financial support, this scheme also links senior citizens to healthcare services by offering free healthcare treatments in various empaneled hospitals across India.</p>
+  <div class="tags">
+    <span class="tag">Healthcare</span>
+    <span class="tag">Pension</span>
+    <span class="tag">Senior Citizens</span>
+  </div>
+</div>
+
+<div class="result-card"  onclick="redirectTo('sc1.html')" >
+  <h4>Senior Citizens Health Insurance Scheme</h4>
+  <span class="location">National</span>
+  <p>This scheme offers affordable health insurance for senior citizens, covering medical expenses, hospitalization, and surgical treatments.</p>
+  <div class="tags">
+    <span class="tag">Health Insurance</span>
+    <span class="tag">Senior Citizens</span>
+  </div>
+</div>
+
+<div class="result-card"  onclick="redirectTo('rashi1.html')" >
+  <h4>Rashtriya Vayoshri Yojana (RVSY) for Medical Support</h4>
+  <span class="location">National</span>
+  <p>This scheme offers assistive devices for elderly citizens with disabilities, ensuring they have access to necessary medical aids like wheelchairs, hearing aids, and spectacles.</p>
+  <div class="tags">
+    <span class="tag">Assistive Devices</span>
+    <span class="tag">Healthcare</span>
+    <span class="tag">Senior Citizens</span>
+  </div>
+</div>
+
+<div class="result-card"  onclick="redirectTo('pra1.html')" >
+  <h4>Pradhan Mantri Jan Arogya Yojana (PMJAY)</h4>
+  <span class="location">National</span>
+  <p>Provides free access to treatment in government and private hospitals for eligible beneficiaries, including senior citizens and vulnerable groups.</p>
+  <div class="tags">
+    <span class="tag">Healthcare</span>
+    <span class="tag">Insurance</span>
+    <span class="tag">Medical Treatment</span>
+  </div>
+</div>
+
+<div class="result-card"  onclick="redirectTo('nmhp1.html')" >
+  <h4>National Mental Health Programme (NMHP)</h4>
+  <span class="location">National</span>
+  <p>Focuses on improving mental health services in hospitals for elderly individuals, providing specialized care for dementia, depression, and other age-related mental health issues.</p>
+  <div class="tags">
+    <span class="tag">Mental Health</span>
+    <span class="tag">Senior Citizens</span>
+  </div>
+</div>
+
+<div class="result-card"  onclick="redirectTo('dmhp1.html')" >
+  <h4>District Mental Health Programme (DMHP)</h4>
+  <span class="location">National</span>
+  <p>In collaboration with hospitals and healthcare centers, this program provides mental health care to senior citizens, with specific attention to age-related psychiatric conditions.</p>
+  <div class="tags">
+    <span class="tag">Mental Health</span>
+    <span class="tag">Senior Citizens</span>
+    <span class="tag">Healthcare</span>
+  </div>
+</div>
+
+<div class="result-card"  onclick="redirectTo('shi1.html')" >
+  <h4>State Health Insurance Scheme for Senior Citizens (e.g., Tamil Nadu, Kerala)</h4>
+  <span class="location">State-Specific</span>
+  <p>State-run health insurance schemes provide coverage for hospitalization, outpatient care, and medical treatments specifically for senior citizens.</p>
+  <div class="tags">
+    <span class="tag">Health Insurance</span>
+    <span class="tag">State-Specific</span>
+    <span class="tag">Senior Citizens</span>
+  </div>
+</div>
+
+<div class="result-card"  onclick="redirectTo('freem2.html')" >
+  <h4>Free Medical Camps for Senior Citizens</h4>
+  <span class="location">Various Locations</span>
+  <p>Various government and private hospitals conduct free medical camps for senior citizens, offering free consultations, check-ups, and medication.</p>
+  <div class="tags">
+    <span class="tag">Medical Camps</span>
+    <span class="tag">Healthcare</span>
+    <span class="tag">Senior Citizens</span>
+  </div>
+</div>
+
+
+    <!-- More result cards can go here... -->
+  </div>
+  <script>
+    function redirectTo(page) {
+      window.location.href = page;
+    }
+  </script>
+
+</body>
+</html>
